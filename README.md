@@ -37,7 +37,8 @@ After this command we will have our bigquery dataset and table to store our data
 topic and subscription on that topic to communication for main server with the server inserting data.
 
 #### Get analysis
- 
+Returns a basic analysis of data in Bigquery.
+
 Request  
 
 ```http
@@ -46,7 +47,7 @@ Request
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `-` | `-` | `-`. |
+| `-` | `-` | `-` |
 
 Response  
 
@@ -68,4 +69,22 @@ Response
         }
     ]
 }
+```
+
+#### Post Info 
+ 
+Request  
+
+```http
+  POST http://localhost:8080/insert
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `-` | `-` | `-`. |
+
+Response  
+
+```
+Message {messageID} sent.
 ```
