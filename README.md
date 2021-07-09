@@ -77,7 +77,20 @@ Request
 
 ```http
   POST http://localhost:8080/insert
+  
+  {
+      "type": "event",
+      "session_id": "9FDA743232C2-AB57-483240-87D0-64324772B5A2",
+      "event_name": "click",
+      "event_time": 1589627711,
+      "page": "main",
+      "country": "TR",
+      "region": "Marmara",
+      "city": "Istanbul",
+      "user_id": "Uu1qJzlfrxYxOSsds5z2321kfAbmSA5pF3"
+  }
 ```
+
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
