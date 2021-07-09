@@ -19,7 +19,7 @@ async function datas(row) {
     var daily_stats_obj = {}
     const row_date = row.event_date;
     daily_stats_obj.date = row.event_date;
-    const average_session_duration_query = `select AVG(sum) as avg from (select *, (start+e) as sum from 
+    const average_session_duration_query = `select AVG(diff) as avg from (select *, (e-start) as diff from 
                                             (select  distinct session_id , first_value(event_time) over (partition by session_id order by event_time)
                                             as start, first_value(event_time) over (partition by session_id order by event_time desc) as e 
                                             from postdataset.posttable where event_date = '${row_date}') dt) dt2;`;
