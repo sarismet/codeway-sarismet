@@ -14,7 +14,7 @@ To check if you have or not
 ```
   node -v
 ```
-If you do not have ant reasonable response then install node from [here](https://nodejs.org/en/)
+If you do not have and reasonable response then install node from [here](https://nodejs.org/en/)
 
 After that install dependencies
 
@@ -29,30 +29,29 @@ or
 ```
 To use the google cloud services we have to login our account. To login you might follow these [instructions](https://cloud.google.com/sdk/gcloud/reference/auth/login) 
 
-Preparation the dataset, table, Topic and Subscription 
+We must prepare the dataset, table, topic and subscription before running our servers. You need to give the names of them as argument. 
 ```bash
-   node init.js
+   node init.js topic-test sub-test dataset-test table-test
 ```
-After this command we will have our bigquery dataset and table to store our data and 
-topic and subscription on that topic to communication for main server with the server inserting data.
+After this command we will have our bigquery dataset and table to store our data and topic and subscription on that topic to communication for main server with the server inserting data.
 
-We have two different services. The one under directory named main-server is to catch API request. If the request is 'GET' then we start to analyze data executing some queries. On the other hand if the request is 'POST' then we transmit the request data to our second server. We established the comminication via google pub/sub. The other server under path named info-register-server is to insert the data taken from main-server into Bigquery table.
+We have two different services. The one under directory named main-server is to catch API request. If the request is 'GET' then we start to analyze data executing some queries. On the other hand, if the request is 'POST' then we transmit the request data to our second server. We established the comminication via google pub/sub. The other server under path named info-register-server is to insert the data taken from main-server into Bigquery table. 
 
 To run main server
 ```bash
    cd main-server
-   node index.js
+   node index.js topic-test dataset-test table-test
 ```
 To run info register server
 ```bash
    cd info-register-server
-   node index.js
+   node index.js sub-test dataset-test table-test
 ```
 
 ## Important Notes
 - Since we have two different servers you need to wait for the other server responsible for insertion if you send a post request to main server to send another request to analyze. The first request can last a little bit longer than the other due to the SSL handshake.
 - Daily average session duration can be 0. We substract the last one from the first one and since first one and the second one are the same the substraction result equals to 0. Therefore it can affect the average session duration. Consider the case we have average session duration 500 then if another session with different id comes to the server then our analysis would have average session duration as lower than 500 since the denominator increases even though numerator remains as it is.
-- In the server we insert the data coming from main server runs the insertion mechanism every second.
+- In the server we insert the data coming from main server we run the insertion mechanism every second.
 
 ## Scalability
 - We get the post request from user or another server ve transmit the data without processing it to the server running under info-register-server. Since the main do not have to wait that server the main server can be available to get another post request. Besides, since we use google cloud's pub/sub server, it helps us run our server under huge traffic. 
