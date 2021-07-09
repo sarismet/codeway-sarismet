@@ -55,6 +55,11 @@ Request
 
 Response  
 
+| Body | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `total_users` | `int` | `total user count` |
+| `daily_stats` | `array` | `daily stats informations` |
+
 ```
 {
     "total_users": 2,
@@ -79,6 +84,18 @@ Response
  
 Request  
 
+| Body | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `type` | `string` | `type of event` |
+| `session_id` | `string` | `session id` |
+| `event_name` | `string` | `event namet` |
+| `event time` | `int` | `event time` |
+| `page` | `string` | `page location` |
+| `country` | `string` | `country code` |
+| `region` | `string` | `region` |
+| `city` | `string` | `city` |
+| `user_id` | `string` | `user id` |
+
 ```http
   POST http://localhost:8080/insert
   
@@ -98,9 +115,9 @@ Request
 
 
 Response  
-| Type     | Description                |
-| :------- | :------------------------- |
-| `String` | `The message id, which is to the server running under info-register-server directory`|
+| Body  | Type     | Description                |
+| :------- | :------- | :------------------------- |
+| `Message`| `String` | `The message id, which is to the server running under info-register-server directory`|
 
 ```
 Message {messageID} sent.
