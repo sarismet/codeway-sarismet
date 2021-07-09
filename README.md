@@ -140,7 +140,7 @@ Message {messageID} sent.
 ```
 
 ## Deployment
-I left a dockerfile for deployment process however you need to login the google cloud in that container.
+I left a dockerfile for deployment process however you need to login the google cloud in that container. When I built it and run it the error message was "Unable to detect a Project Id in the current environment.".
 
 ## Tech Stack
 **Server:** [Nodejs](https://nodejs.org/en/), [express](https://www.npmjs.com/package/express), [@google-cloud/pubsub](https://www.npmjs.com/package/@google-cloud/pubsub), [@google-cloud/bigquery](https://www.npmjs.com/package/@google-cloud/bigquery)
