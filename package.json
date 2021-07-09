@@ -1,0 +1,24 @@
+{
+  "name": "codeway-sarismet",
+  "version": "1.0.0",
+  "description": "Clone the project in a path you wish",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarismet/codeway-sarismet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarismet/codeway-sarismet/issues"
+  },
+  "homepage": "https://github.com/sarismet/codeway-sarismet#readme",
+  "dependencies": {
+    "@google-cloud/bigquery": "^5.6.0",
+    "@google-cloud/pubsub": "^2.15.1",
+    "express": "^4.17.1"
+  }
+}
