@@ -1,5 +1,3 @@
-## Run Locally
-
 Clone the project in a path you wish
 
 ```bash
@@ -39,7 +37,18 @@ After this command we will have our bigquery dataset and table to store our data
 topic and subscription on that topic to communication for main server with the server inserting data.
 
 We have two different services. The one under directory named main-server is to catch API request. If the request is 'GET' then we start to analyze data executing some queries. On the other hand if the request is 'POST' then we transmit the request data to our second server. We established the comminication via google pub/sub. The other server under path named info-register-server is to insert the data taken from main-server into Bigquery table.
- 
+
+To run main server
+```bash
+   cd main-server
+   node index.js
+```
+To run info register server
+```bash
+   cd info-register-server
+   node index.js
+```
+
 #### Get analysis
 Returns a basic analysis of data in Bigquery.
 
