@@ -1,3 +1,6 @@
+//REFERENCE: https://github.com/googleapis/nodejs-pubsub/
+//REFERENCE: https://github.com/googleapis/nodejs-bigquery
+
 const { PubSub } = require('@google-cloud/pubsub');
 const { BigQuery } = require('@google-cloud/bigquery');
 const pubSubClient = new PubSub();
@@ -26,14 +29,14 @@ async function createTable(datasetId, tableId) {
 
     ]
     const optionsDataSet = {
-        location: 'US',
+        location: 'EU',
     };
     const [dataSet] = await bigquery.createDataset(datasetId, optionsDataSet);
     console.log(`Dataset ${dataSet.id} created.`);
 
     const optionsTable = {
         schema: schema,
-        location: 'US',
+        location: 'EU',
     };
     // Create a new table in the dataset
     const [table] = await bigquery
@@ -43,6 +46,6 @@ async function createTable(datasetId, tableId) {
     console.log(`Table ${table.id} created.`);
 }
 
-createSubscriptionTable('topic-post3', 'sub-post-main3');
-
-createTable('postdataset3', 'posttable3');
+const argv = process.argv.slice(2);
+createSubscriptionTable(argv[0], argv[1]);
+createTable(argv[2], argv[3]);
