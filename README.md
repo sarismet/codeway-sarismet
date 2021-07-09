@@ -96,12 +96,20 @@ Request
 ```
 
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `-` | `-` | `-`. |
 
 Response  
+| Type     | Description                |
+| :------- | :------------------------- |
+| `String` | `The message id, which is to the server running under info-register-server directory`|
 
 ```
 Message {messageID} sent.
 ```
+
+## Deployment
+I left a dockerfile for deployment process however you need to login the google cloud in that container.
+
+## Tech Stack
+**Server:** [Nodejs](https://nodejs.org/en/), [express](https://www.npmjs.com/package/express), [@google-cloud/pubsub](https://www.npmjs.com/package/@google-cloud/pubsub), [@google-cloud/bigquery](https://www.npmjs.com/package/@google-cloud/bigquery)
+
+I have used nodejs and expressjs for the server side. We have two different servers and I needed to establish communication between them so the google cloud's pub/sub meets this requirement. In order to store data I used google cloud's bigquery.
