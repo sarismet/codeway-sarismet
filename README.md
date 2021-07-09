@@ -38,7 +38,7 @@ Preparation the dataset, table, Topic and Subscription
 After this command we will have our bigquery dataset and table to store our data and 
 topic and subscription on that topic to communication for main server with the server inserting data.
 
-- We have two different services. The one under directory named main-server is to catch API request. If the request is 'GET' then we start to analyze data executing some queries. On the other hand if the request is 'POST' then we transmit the request data to our second server. We established the comminication via google pub/sub. The other server under path named info-register-server is to insert the data taken from main-server into Bigquery table.
+We have two different services. The one under directory named main-server is to catch API request. If the request is 'GET' then we start to analyze data executing some queries. On the other hand if the request is 'POST' then we transmit the request data to our second server. We established the comminication via google pub/sub. The other server under path named info-register-server is to insert the data taken from main-server into Bigquery table.
  
 #### Get analysis
 Returns a basic analysis of data in Bigquery.
