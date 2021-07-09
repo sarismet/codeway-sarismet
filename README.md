@@ -83,7 +83,9 @@ Response
 #### Post Info 
  
 Request  
-
+```http
+  POST http://localhost:8080/insert
+```
 | Body | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `type` | `string` | `type of event` |
@@ -96,9 +98,7 @@ Request
 | `city` | `string` | `city` |
 | `user_id` | `string` | `user id` |
 
-```http
-  POST http://localhost:8080/insert
-  
+```
   {
       "type": "event",
       "session_id": "9FDA743232C2-AB57-483240-87D0-64324772B5A2",
