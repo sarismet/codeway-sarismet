@@ -29,6 +29,12 @@ or
 ```bash
    npm install
 ```
+Preparation the dataset, table, Topic and Subscription 
+```bash
+   node init.js
+```
+After this command we will have our bigquery dataset and table to store our data and 
+topic and subscription on that topic to communication for main server with the server inserting data.
 
 #### Get analysis
  
@@ -45,5 +51,21 @@ Request
 Response  
 
 ```
-response
+{
+    "total_users": 2,
+    "daily_stats": [
+        {
+            "date": "9/7/2021",
+            "average_session_duration": 32,
+            "active_user_count": 3,
+            "new_user_count": 1
+        },
+        {
+            "date": "8/7/2021",
+            "average_session_duration": 24,
+            "active_user_count": 2,
+            "new_user_count": 2
+        }
+    ]
+}
 ```
