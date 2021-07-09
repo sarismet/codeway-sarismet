@@ -49,6 +49,14 @@ To run info register server
    node index.js
 ```
 
+## Important Notes
+- Since we have two different servers you need to wait for the other server responsible for insertion if you send a post request to main server to send another request to analyze. The first request can last a little bit longer than the other due to the SSL handshake.
+- Daily average session duration can be 0. We substract the last one from the first one and since first one and the second one are the same the substraction result equals to 0. Therefore it can affect the average session duration. Consider the case we have average session duration 500 then if another session with different id comes to the server then our analysis would have average session duration as lower than 500 since the denominator increases even though numerator remains as it is.
+- In the server we insert the data coming from main server runs the insertion mechanism every second.
+
+## Scalability
+- We get the post request from user or another server ve transmit the data without processing it to the server running under info-register-server. Since the main do not have to wait that server the main server can be available to get another post request. Besides, since we use google cloud's pub/sub server, it helps us run our server under huge traffic. 
+
 #### Get analysis
 Returns a basic analysis of data in Bigquery.
 
@@ -139,6 +147,9 @@ I left a dockerfile for deployment process however you need to login the google 
 **Server:** [Nodejs](https://nodejs.org/en/), [express](https://www.npmjs.com/package/express), [@google-cloud/pubsub](https://www.npmjs.com/package/@google-cloud/pubsub), [@google-cloud/bigquery](https://www.npmjs.com/package/@google-cloud/bigquery)
 
 I have used nodejs and expressjs for the server side. We have two different servers and I needed to establish communication between them so the google cloud's pub/sub meets this requirement. In order to store data I used google cloud's bigquery.
+
+## How we can improve it
+- The analysis report plot the analsis for each date. However, the dates are not in order. While you scroll down you can see all the analysis of 07/07/2021 earlier than analysis of 05/07/2021. I should have order the list before response. 
 
 ## REFERENCE
 I have used many piece of code from readme tutorials of these repositorys below.
