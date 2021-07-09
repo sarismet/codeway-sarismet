@@ -25,7 +25,10 @@ After that install dependencies
    npm i @google-cloud/pubsub
    npm i @google-cloud/bigquery
 ```
-
+or 
+```bash
+   npm install
+```
 
 #### Get analysis
  
