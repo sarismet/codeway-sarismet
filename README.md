@@ -149,6 +149,7 @@ I have used nodejs and expressjs for the server side. We have two different serv
 
 ## How we can improve it
 - The analysis report plot the analsis for each date. However, the dates are not in order. While you scroll down you can see all the analysis of 07/07/2021 earlier than analysis of 05/07/2021. I should have order the list before response. 
+- We execute five different queries for each field of analysis. We can enhance this process to speed up by developing two complex queries to extract all the data from Bigquery.  
 
 ## REFERENCE
 I have used many piece of code from readme tutorials of these repositorys below.
