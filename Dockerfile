@@ -4,6 +4,6 @@ EXPOSE 8080
 COPY package.json package*.json ./
 RUN npm install --only=production
 COPY . .
-CMD ["node", "init.js", "topic-test", "sub-test", "dataset-test", "table-test"]
-CMD ["node", "main-server/index.js", "topic-test", "dataset-test", "table-test"]
-CMD ["node", "info-register-server/index.js", "topic-test", "dataset-test", "table-test"]
+CMD ["node", "init.js", "topic_test", "sub_test", "dataset_test", "table_test"]
+CMD ["node", "main-server/index.js", "topic_test", "dataset_test", "table_test"]
+CMD ["node", "info-register-server/index.js", "topic_test", "dataset_test", "table_test"]

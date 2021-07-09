@@ -31,7 +31,7 @@ To use the google cloud services we have to login our account. To login you migh
 
 We must prepare the dataset, table, topic and subscription before running our servers. You need to give the names of them as argument. 
 ```bash
-   node init.js topic-test sub-test dataset-test table-test
+   node init.js topic_test sub_test dataset_test table_test
 ```
 After this command we will have our bigquery dataset and table to store our data and topic and subscription on that topic to communication for main server with the server inserting data.
 
@@ -40,12 +40,12 @@ We have two different services. The one under directory named main-server is to 
 To run main server
 ```bash
    cd main-server
-   node index.js topic-test dataset-test table-test
+   node index.js topic_test dataset_test table_test
 ```
 To run info register server
 ```bash
    cd info-register-server
-   node index.js sub-test dataset-test table-test
+   node index.js sub_test dataset_test table_test
 ```
 
 ## Important Notes
