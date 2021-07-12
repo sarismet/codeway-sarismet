@@ -1,5 +1,5 @@
 {
-  "name": "codeway-sarismet",
+  "name": "nodejs-pub-sub-sarismet",
   "version": "1.0.0",
   "description": "Clone the project in a path you wish",
   "main": "index.js",
